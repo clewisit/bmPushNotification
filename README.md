@@ -15,12 +15,13 @@ After cloning this repo and entering the folder, edit `index.js` and/or `tg.js` 
 Android Instructions:
 Install Termux from the F-droid repo.
 Open Termux
+install wget using `pkg install wget`
+get the index.js script using `wget https://raw.githubusercontent.com/clewisit/bmPushNotification/master/index.js`
+get the tg.js script using `wget https://raw.githubusercontent.com/clewisit/bmPushNotification/master/tg.js`
 Install node.js using the command `pkg install nodejs`
 run `npm install`
-run `npm install 
+run `npm install socket.io-client`
+run `npm install moment`
+run `npm install node-cache`
 
-```
-npm install
-node index.js
-```
-
+Finally, run `node tg.js` or `node index.js` to start the program.  
