@@ -39,7 +39,11 @@ for (let i = 0; i < pushUsers.length; i++){
      pushes.push(new Push({ user: pushUsers[i].user, token: pushUsers[i].token})); 
 }
 */
+let linecount=1;
+console.log('|------|--------|------------------|----------|--------|');
 console.log('|  TG  |Callsign| Name             | Start    |TalkTime|');
+console.log('|------|--------|------------------|----------|--------|');
+
 socket.on('mqtt', (msg) => {
     const lhMsg = JSON.parse(msg.payload);
     if (TALK_GROUPS_TO_MONITOR.indexOf(lhMsg.DestinationID) > -1 && lhMsg.Stop !== 0 && (lhMsg.Stop - lhMsg.Start) >= MINIMUM_REQUIRED_TRANSMIT_TIME_SECONDS && !sessionIdCache.get(lhMsg.SessionID)) {
@@ -65,8 +69,15 @@ socket.on('mqtt', (msg) => {
                 var talktime = lhMsg.Stop - lhMsg.Start
                 talktime=String('    ' + talktime).slice(-4)
                 //const msg = `Talkgroup ${lhMsg.DestinationID} - Transmission from ${lhMsg.SourceCall} (${talkerAlias}) lasted ${lhMsg.Stop - lhMsg.Start} seconds. The previous transmission was ${duration} ago.`;
+                if (linecount==14) {
+                    console.log('|------|--------|------------------|----------|--------|');
+                    console.log('|  TG  |Callsign| Name             | Start    |TalkTime|');
+                    console.log('|------|--------|------------------|----------|--------|');
+                    let linecount=1;
+                };
                 const msg = `|${tg}| ${cs} | ${talkerAlias} | ${time} | ${talktime} s |`;
                 console.log(msg);
+                linecount++;
                 /* Disable push messages */
                 /* pushes.forEach((push)=>{
                     push.send({
