@@ -12,16 +12,16 @@ If you don't have nodejs installed, that will be step 1 (don't know if it's inst
 
 After cloning this repo and entering the folder, edit `index.js` and/or `tg.js` to define your preferred talkgroups and enter your pushover userkey & token (https://pushover.net/).  Supports more than one if you want to run this service for multiple users that want to be notified about the same talkgroup activity.
 
-Android Instructions:
-Install Termux from the F-droid repo.
-Open Termux
-install wget using `pkg install wget`
-get the index.js script using `wget https://raw.githubusercontent.com/clewisit/bmPushNotification/master/index.js`
-get the tg.js script using `wget https://raw.githubusercontent.com/clewisit/bmPushNotification/master/tg.js`
-Install node.js using the command `pkg install nodejs`
-run `npm install`
-run `npm install socket.io-client`
-run `npm install moment`
-run `npm install node-cache`
-
+Android Instructions:  <br>
+Install Termux from the F-droid repo.  <br>
+Open Termux  <br>
+install wget using `pkg install wget`  <br>
+get the index.js script using `wget https://raw.githubusercontent.com/clewisit/bmPushNotification/master/index.js`  <br>
+get the tg.js script using `wget https://raw.githubusercontent.com/clewisit/bmPushNotification/master/tg.js`  <br>
+Install node.js using the command `pkg install nodejs`  <br>
+run `npm install`  <br>
+run `npm install socket.io-client` <br>
+run `npm install moment`  <br>
+run `npm install node-cache`  <br>
+<br>
 Finally, run `node tg.js` or `node index.js` to start the program.  
