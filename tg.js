@@ -69,7 +69,7 @@ socket.on('mqtt', (msg) => {
                 var talktime = lhMsg.Stop - lhMsg.Start
                 talktime=String('    ' + talktime).slice(-4)
                 //const msg = `Talkgroup ${lhMsg.DestinationID} - Transmission from ${lhMsg.SourceCall} (${talkerAlias}) lasted ${lhMsg.Stop - lhMsg.Start} seconds. The previous transmission was ${duration} ago.`;
-                if (linecount==12) {
+                if (linecount==13) {
                     console.log('|------|--------|------------------|----------|--------|');
                     console.log('|  TG  |Callsign| Name             | Start    |TalkTime|');
                     console.log('|------|--------|------------------|----------|--------|');
