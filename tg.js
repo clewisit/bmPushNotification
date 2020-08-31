@@ -39,7 +39,7 @@ for (let i = 0; i < pushUsers.length; i++){
      pushes.push(new Push({ user: pushUsers[i].user, token: pushUsers[i].token})); 
 }
 */
-let linecount=1;
+var linecount=1;
 console.log('|------|--------|------------------|----------|--------|');
 console.log('|  TG  |Callsign| Name             | Start    |TalkTime|');
 console.log('|------|--------|------------------|----------|--------|');
@@ -70,10 +70,10 @@ socket.on('mqtt', (msg) => {
                 talktime=String('    ' + talktime).slice(-4)
                 //const msg = `Talkgroup ${lhMsg.DestinationID} - Transmission from ${lhMsg.SourceCall} (${talkerAlias}) lasted ${lhMsg.Stop - lhMsg.Start} seconds. The previous transmission was ${duration} ago.`;
                 if (linecount==13) {
+                    linecount=1;
                     console.log('|------|--------|------------------|----------|--------|');
                     console.log('|  TG  |Callsign| Name             | Start    |TalkTime|');
                     console.log('|------|--------|------------------|----------|--------|');
-                    let linecount=1;
                 };
                 const msg = `|${tg}| ${cs} | ${talkerAlias} | ${time} | ${talktime} s |`;
                 console.log(msg);
